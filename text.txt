@@ -1,0 +1,97 @@
+let counter = 0;
+let proCount = 0;
+
+
+window.addEventListener('wheel', function(event){
+    if(event.deltaY < 0){
+        counter += 45;
+        proCount += 1;
+        $('.main_box').css({"transform" : "rotate("+ counter +"deg)"});
+        $(".proBox").removeClass('active');
+        if(proCount > 7){proCount = 0}
+        $(".proBox").eq(proCount).addClass('active');
+    }else if(event.deltaY > 0){
+        counter -= 45;
+        proCount -= 1;
+        $('.main_box').css({"transform" : "rotate("+ counter +"deg)"});
+        $(".proBox").removeClass('active');
+        if(proCount < -7){proCount = 0}
+        $(".proBox").eq(proCount).addClass('active');
+    }
+})
+
+*, *::after,*::before{
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -ms-box-sizing : border-box;
+    box-sizing: border-box;
+}
+body{
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 16px;
+    margin: 0;
+    background: #039682;
+    color: #ffffff;
+    min-height: 100vh;
+    display: flex;
+    justify-content: flex-end;
+    flex-direction: column;
+    align-items: center;
+    overflow: hidden;
+}
+
+.main_box{
+    width: 5px;
+    height: 5px;
+    background-color: red;
+    position: relative;
+    transition: all 0.3s ease-out;
+}
+
+.main_box *{transition: all 0.3s ease-out;}
+.proBox{
+    /* background-color: green; */
+    width: 200px;
+    height: 200px;
+    position: absolute;
+    left: 0;
+    top: 0;
+}
+.proBox figure{
+    margin: 0;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-size: cover;
+    background-blend-mode: darken;
+    background-color: rgba(0,0,0,0.8);
+    clip-path: polygon(0% 15%, 100% 0%, 100% 100%, 0% 85%);
+}
+.proBox.active figure{ background-blend-mode: initial;}
+
+.proBox:nth-child(1){
+    transform: translate(100%, -50%) rotate(0deg);
+}
+.proBox:nth-child(2){
+    transform: translate(55%, -155%) rotate(-45deg);
+}
+.proBox:nth-child(3){
+    transform: translate(-50%, -200%) rotate(-90deg);
+}
+.proBox:nth-child(4){
+    transform: translate(-155%, -155%) rotate(-135deg);
+}
+.proBox:nth-child(5){
+    transform: translate(-200%, -50%) rotate(-180deg);
+}
+.proBox:nth-child(6){
+    transform: translate(-155%, 55%) rotate(-225deg);
+}
+.proBox:nth-child(7){
+    transform: translate(-50%, 100%) rotate(-270deg);
+}
+.proBox:nth-child(8){
+    transform: translate(55%, 55%) rotate(-315deg);
+}

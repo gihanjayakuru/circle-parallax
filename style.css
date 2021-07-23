@@ -1,0 +1,85 @@
+*, *::after,*::before{
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -ms-box-sizing : border-box;
+    box-sizing: border-box;
+}
+body{
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 16px;
+    margin: 0;
+    background: #039682;
+    color: #ffffff;
+    min-height: 100vh;
+    display: flex;
+    justify-content: flex-end;
+    flex-direction: column;
+    align-items: center;
+    overflow: hidden;
+}
+
+.main_box{
+    width: 5px;
+    height: 5px;
+    background-color: red;
+    position: relative;
+    top: 110px;
+    transition: all 0.3s ease-out;
+}
+
+.main_box *{transition: all .5s ease-out;}
+.proBox{
+    /* background-color: green; */
+    width: 300px;
+    height: 300px;
+    position: absolute;
+    left: 0;
+    top: 0;
+    /* display: flex;
+    justify-content: center;
+    align-items: center; */
+}
+.proBox img{
+    text-align: center;
+    width: 850px;
+    margin: 0;
+    position: absolute;
+    top: -50px;
+    left: -250px;
+    right: 0;
+    bottom: 0;
+    /* background-size: cover;
+    background-position: center;
+    background-blend-mode: darken; */
+    /* background-color: rgba(0,0,0,0.8); */
+    clip-path: polygon(0% 15%, 100% 0%, 100% 100%, 0% 85%);
+}
+.proBox.active img{ background-blend-mode: initial;}
+
+.proBox:nth-child(1){
+    transform: translate(90%, -65%) rotate(90deg);
+}
+.proBox:nth-child(2){
+    transform: translate(40%, -149%) rotate(45deg);
+}
+.proBox:nth-child(3){
+    transform: translate(-60%, -185%) rotate(0deg);
+}
+.proBox:nth-child(4){
+    /* background-color: yellowgreen; */
+    transform: translate(-157%, -137%) rotate(-45deg);
+}
+.proBox:nth-child(5){
+    transform: translate(-185%, -34%) rotate(-90deg);
+}
+.proBox:nth-child(6){
+    transform: translate(-130%, 63%) rotate(-135deg);
+}
+.proBox:nth-child(7){
+    /* background-color: tomato; */
+    transform: translate(-35%, 90%) rotate(-180deg);
+}
+.proBox:nth-child(8){
+    /* background-color: yellow; */
+    transform: translate(60%, 33%) rotate(-225deg);
+}
